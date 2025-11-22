@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            width: 100%;
+            height: 700px;
+            background-image: linear-gradient(aqua,green,blue,gray,orange);
+            border-radius: 30px;
+            border: 20px;
+            display: flex;
+        }
+        #main1{
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            border-radius: 30px;
+            border: 20px;
+            animation: spin 5s alternate infinite;
+            position: relative;
+        }
+        #main2{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            border-radius: 30px;
+            border: 20px;
+            animation: inam 4s alternate infinite;
+        }
+        #main3{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-radius: 30px;
+            border: 20px;
+            animation: yaseen 3s alternate infinite;
+            position: relative;
+        }
+        #main4{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 30px;
+            border: 20px;
+            animation: akash 2s alternate infinite;
+            position: relative;
+        }
+       @keyframes spin {
+        0%{
+            top:0px;
+            left: 0px;
+        }
+        25%{
+            top: 0px;
+            left: 900px;
+            right: 500px;
+            z-index: 1;
+            position: relative;
+        }
+        50%{
+            top: 500px;
+            left: 900px;
+        }
+        75%{
+            top: 500px;
+            left: 0px;
+        }
+        100%{
+            top: 0px;
+            left: 0px;
+        }
+
+        
+       }
+        @keyframes akash {
+        0%{
+            top:0px;
+            left: 0px;
+        }
+        25%{
+            top: 0px;
+            left: 300px;
+            right: 0px;
+            z-index: 1;
+            position: relative;
+        }
+        50%{
+            top: 500px;
+            left: 80px;
+        }
+        75%{
+            top: 500px;
+            left: 0px;
+        }
+        100%{
+            top: 0px;
+            left: 0px;
+        }
+
+        
+       }
+        @keyframes yaseen {
+        0%{
+            top:0px;
+            left: 0px;
+            background-color: antiquewhite;
+        }
+        25%{
+            top: 0px;
+            left: 500px;
+            right: 0px;
+            z-index: 1;
+            position: relative;
+            background-color: aquamarine;
+        }
+        50%{
+            top: 400px;
+            left: 100px;
+            background-color: olive;
+        }
+        75%{
+            top: 500px;
+            left: 0px;
+        }
+        100%{
+            top: 0px;
+            left: 0px;
+            background-color: tomato;
+        }
+
+        
+       }
+        @keyframes inam {
+        0%{
+            top:0px;
+            left: 0px;
+            background-color: greenyellow;
+        }
+        25%{
+            top: 0px;
+            left: 700px;
+            right: 0px;
+            z-index: 1;
+            position: relative;
+            background-color: black;
+        }
+        50%{
+            top: 500px;
+            left: 900px;
+            background-color: brown;
+        }
+        75%{
+            top: 500px;
+            left: 0px;
+            background-color: blueviolet;
+        }
+        100%{
+            top: 0px;
+            left: 0px;
+            background-color: wheat;
+        }
+
+        
+       }
+       body{
+        background-image: linear-gradient(red,blue,green);
+       }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="main1"></div>
+        <div id="main2"></div>
+        <div id="main3"></div>
+        <div id="main4"></div>
+
+    </div>
+</body>
+</html>
