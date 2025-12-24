@@ -16,9 +16,9 @@ function sum(a,s,d) {
 let sums=sum(3,4,2)
 console.log(sums);
 
-// function smd(a,...s){
-//     return a*s;
-// }
-// console.log(smd(2,3,56,7,8));
+function smd(a,...s){
+    return a*s;
+}
+console.log(smd(2,3,56,7,8));
 
 
