@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio 2025</title>
+    <!-- <link href="cdn.jsdelivr.net" rel="stylesheet">
+    <link rel="stylesheet" href="cdn.jsdelivr.net"> -->
+    <style>
+        /* 2025 Design System - Variables */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --neon-blue: #00d2ff;
+    --neon-purple: #9d50bb;
+    --dark-surface: #121212;
+    --soft-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* 1. Modern Typography (Variable Fonts) */
+body {
+    font-family: 'Inter Variable', sans-serif; /* 2025 trend: flexible typography */
+    background-color: var(--dark-surface);
+    color: #f8f9fa;
+}
+
+h1, h2, .navbar-brand {
+    font-weight: 800;
+    letter-spacing: -2px; /* 2025 trend: Bold, tight headings */
+    text-transform: uppercase;
+}
+
+/* 2. Glassmorphism Effect for Cards & Nav */
+.navbar, .card, .testimonial-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px); /* Blurred glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--soft-shadow);
+    border-radius: 15px;
+}
+
+/* 3. Micro-animations for Project Cards */
+.project-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover {
+    transform: scale(1.03) translateY(-10px);
+    border-color: var(--neon-blue);
+    cursor: pointer;
+}
+
+/* 4. Gradient Text and Buttons */
+.text-gradient {
+    background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    transition: filter 0.3s;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.2);
+}
+
+/* 5. Custom Animated Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--neon-blue), var(--neon-purple));
+    border-radius: 10px;
+}
+
+        :root { --primary-color: #0d6efd; --dark-bg: #121212; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; }
+        section { padding: 100px 0; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images.unsplash.com') center/cover; height: 100vh; display: flex; align-items: center; color: white; }
+        .skill-bar { height: 8px; border-radius: 10px; }
+        .project-card { transition: transform 0.3s ease; border: none; overflow: hidden; }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .testimonial-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar-nav">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#">DEV.PORTFOLIO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fs-5" id="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="home" class="hero text-center">
+        <div class="container">
+            <h1 class="display-1 fw-bold mb-3">John Doe</h1>
+            <p class="fs-3 mb-5">Creative Developer & UI Designer</p>
+            <a href="#projects" class="btn btn-outline-light btn-lg px-5 py-3">View Portfolio</a>
+        </div>
+    </header>
+
+    <!-- About & Skills -->
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="display-5 fw-bold mb-4">Crafting digital experiences since 2018.</h2>
+                    <p class="text-muted mb-4">I specialize in building high-performance web applications using the latest Bootstrap 5 frameworks and modern JavaScript.</p>
+                    <div class="skills mt-5">
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2"><span>Frontend Development</span><span>95%</span></div>
+                            <div class="progress"><div class="progress-bar bg-primary" role="progressbar" style="width: 95%"></div></div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2"><span>UI/UX Design</span><span>85%</span></div>
+                            <div class="progress"><div class="progress-bar bg-primary" role="progressbar" style="width: 85%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <img src="via.placeholder.com" class="img-fluid rounded-4 shadow" alt="Profile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">Core Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card p-4 h-100 border-0 shadow-sm">
+                        <i class="bi bi-laptop fs-1 text-primary mb-3"></i>
+                        <h4 class="fw-bold">Web Design</h4>
+                        <p class="text-muted">Beautiful, responsive layouts optimized for all devices in 2025.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 h-100 border-0 shadow-sm">
+                        <i class="bi bi-code-slash fs-1 text-primary mb-3"></i>
+                        <h4 class="fw-bold">Development</h4>
+                        <p class="text-muted">Clean, maintainable code using Bootstrap 5 and modern frameworks.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 h-100 border-0 shadow-sm">
+                        <i class="bi bi-graph-up-arrow fs-1 text-primary mb-3"></i>
+                        <h4 class="fw-bold">SEO & Marketing</h4>
+                        <p class="text-muted">Optimizing your web presence for better search engine visibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">Latest Projects</h2>
+            <div class="row g-4 text-start">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <img src="via.placeholder.com" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Global SaaS Platform</h5>
+                            <p class="small text-muted">Web Design / Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <img src="via.placeholder.com" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Eco-Commerce App</h5>
+                            <p class="small text-muted">UI/UX / React</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <img src="via.placeholder.com" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="fw-bold">AI Analytics Dashboard</h5>
+                            <p class="small text-muted">Data Visualization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-dark text-white">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">What Clients Say</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <p class="fs-4 italic">"An absolute professional who delivered beyond expectations."</p>
+                        <h5 class="fw-bold mt-4">Sarah Jenkins</h5>
+                        <p class="text-secondary small">CEO, TechStart</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 border-top border-secondary">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-4">Let's Work Together</h3>
+            <p class="mb-4 text-secondary">available for freelance projects in 2025</p>
+            <div class="d-flex justify-content-center gap-3 mb-5">
+                <a href="#" class="text-white fs-2"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white fs-2"><i class="bi bi-github"></i></a>
+                <a href="#" class="text-white fs-2"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <p class="small">&copy; 2025 John Doe Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="cdn.jsdelivr.net"></script>
+</body>
+</html>

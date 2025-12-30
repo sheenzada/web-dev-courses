@@ -1,0 +1,534 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <title>Bootstrap Two Column Grid Layouts for Tablets and Desktops</title> 
+    <link 
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel
+="stylesheet"/> 
+    <script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js
+"></script> 
+    <style> 
+      /* Some custom styles to beautify this example */ 
+      .demo-content { 
+        padding: 15px; 
+        font-size: 18px; 
+        background: #dbdfe5; 
+        margin-bottom: 15px; 
+      } 
+      .demo-content.bg-alt { 
+        background: #abb1b8; 
+      } 
+    </style> 
+  </head> 
+  <body> 
+    <h2 class="text-center mt-3">Bootstrap Responsive Layout</h2> 
+    <div class="text-center my-3"> 
+      Open the output in a new blank tab (Click the arrow next to "Show Output" 
+      button) and resize the browser window to understand how the Bootstrap 
+      responsive grid system works. 
+    </div> 
+    <div class="container"> 
+      <!--Row with two equal columns--> 
+      <div class="row"> 
+        <div class="col-md-6"> 
+          <div class="demo-content">.col-md-6</div> 
+        </div> 
+        <div class="col-md-6"> 
+          <div class="demo-content bg-alt">.col-md-6</div> 
+        </div> 
+      </div> 
+            <!--Row with two columns divided in 1:2 ratio--> 
+      <div class="row"> 
+        <div class="col-md-4"> 
+          <div class="demo-content">.col-md-4</div> 
+        </div> 
+        <div class="col-md-8"> 
+          <div class="demo-content bg-alt">.col-md-8</div> 
+        </div> 
+      </div> 
+      <!--Row with two columns divided in 1:3 ratio--> 
+      <div class="row"> 
+        <div class="col-md-3"> 
+          <div class="demo-content">.col-md-3</div> 
+        </div> 
+        <div class="col-md-9"> 
+          <div class="demo-content bg-alt">.col-md-9</div> 
+        </div> 
+      </div> 
+    </div> 
+    <div class="card text-center"> 
+<div class="card-header">Featured</div> 
+<div class="card-body"> 
+<h5 class="card-title">NASA Launched Solar Probe</h5> 
+<p class="card-text">NASA launched Parker space probe in 2018 
+with the mission of making observations of the outer corona of the 
+Sun. It is the first-ever mission to "touch" the Sun.</p> 
+<a href="#" class="btn btn-primary">Know more</a> 
+</div> 
+<div class="card-footer text-muted">3 years ago</div> 
+</div> 
+
+
+    <div class="card" style="width: 300px;"> 
+<img src="img/WhatsApp Image 2025-11-15 at 02.43.09_f1e263ba.jpg" class="card-img-top" alt="..."> 
+<div class="card-body text-center"> 
+<h5 class="card-title">Alice Liddel</h5> 
+<p class="card-text">Alice is a freelance web designer and 
+developer based in London. She is specialized in HTML5, CSS3, 
+JavaScript, Bootstrap, etc.</p> 
+<a href="#" class="btn btn-primary">View Profile</a> 
+</div> 
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body> 
+  <div class="m-4"> 
+    <div class="row g-2"> 
+      <div class="col-6"> 
+        <div class="input-group"> 
+          <span class="input-group-text"> 
+            <span class="bi-person"></span> 
+          </span> 
+          <input type="text" class="form-control" placeholder="Username" /> 
+        </div> 
+      </div> 
+      <div class="col-6"> 
+        <div class="input-group"> 
+          <input type="text" class="form-control" placeholder="Amount" /> 
+          <span class="input-group-text">.00</span> 
+        </div> 
+      </div> 
+      <div class="col-6"> 
+        <div class="input-group"> 
+          <span class="input-group-text">https://www.</span> 
+          <input type="text" class="form-control" placeholder="Domain name" /> 
+        </div> 
+      </div> 
+      <div class="col-6"> 
+        <div class="input-group"> 
+          <span class="input-group-text">$</span> 
+          <input type="text" class="form-control" placeholder="US Dollar" /> 
+          <span class="input-group-text">.00</span> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+</body>
+
+
+  <div class="m-4"> 
+    <div class="row g-2"> 
+      <div class="col-12"> 
+        <div class="input-group"> 
+          <span class="input-group-text">Address</span> 
+          <textarea class="form-control"></textarea> 
+        </div> 
+      </div> 
+      <div class="col-6"> 
+        <div class="input-group"> 
+          <label class="input-group-text">Country</label> 
+          <select class="form-select"> 
+            <option selected>Choose...</option> 
+            <option>France</option> 
+            <option>Germany</option> 
+            <option>Hungary</option> 
+          </select> 
+        </div> 
+      </div> 
+      <div class="col-6"> 
+        <div class="input-group"> 
+          <select class="form-select"> 
+            <option selected>Choose...</option> 
+            <option>One</option> 
+            <option>Two</option> 
+            <option>Three</option> 
+          </select> 
+          <button type="button" class="btn btn-secondary">Submit</button> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+
+
+
+
+
+  <div class="input-group"> 
+    <input type="file" class="form-control"> 
+    <button type="button" class="btn btn-secondary">Upload</button> 
+</div>
+
+
+
+
+
+<body> 
+  <div class="m-4"> 
+    <h1 class="border-bottom pb-3 mb-4">Registration Form</h1> 
+    <form 
+      class="needs-validation" 
+      action="/examples/actions/confirmation.php" 
+      method="post" 
+      novalidate 
+    > 
+      <div class="row mb-3"> 
+        <label class="col-sm-3 col-form-label" for="firstName" 
+          >First Name:</label 
+        > 
+        <div class="col-sm-9"> 
+          <input 
+            type="text" 
+            class="form-control" 
+            id="firstName" 
+            placeholder="First Name" 
+            required 
+          /> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <label class="col-sm-3 col-form-label" for="lastName">Last Name:</label> 
+        <div class="col-sm-9"> 
+          <input 
+            type="text" 
+            class="form-control" 
+            id="lastName" 
+            placeholder="Last Name" 
+            required 
+          /> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <label class="col-sm-3 col-form-label" for="emailAddress" 
+          >Email Address:</label 
+        > 
+        <div class="col-sm-9"> 
+          <input 
+            type="email" 
+            class="form-control" 
+            id="emailAddress" 
+            placeholder="Email Address" 
+            required 
+          /> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <label class="col-sm-3 col-form-label" for="phoneNumber" 
+          >Mobile Number:</label 
+        > 
+        <div class="col-sm-9"> 
+          <input 
+            type="number" 
+            class="form-control" 
+            id="phoneNumber" 
+            placeholder="Phone Number" 
+            required 
+          /> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <label class="col-sm-3 col-form-label">Date of Birth:</label> 
+        <div class="col-sm-3"> 
+          <select class="form-select" required> 
+            <option value="">Date</option> 
+            <option value="1">1</option> 
+            <option value="2">2</option> 
+            <option value="3">3</option> 
+            <option value="4">4</option> 
+            <option value="5">5</option> 
+            <option value="6">6</option> 
+            <option value="7">7</option> 
+            <option value="8">8</option> 
+            <option value="9">9</option> 
+            <option value="10">10</option> 
+            <option value="11">11</option> 
+            <option value="12">12</option> 
+            <option value="13">13</option> 
+            <option value="14">14</option> 
+            <option value="15">15</option> 
+            <option value="16">16</option> 
+            <option value="17">17</option> 
+            <option value="18">18</option> 
+            <option value="19">19</option> 
+            <option value="20">20</option> 
+            <option value="21">21</option> 
+            <option value="22">22</option> 
+            <option value="23">23</option> 
+            <option value="24">24</option> 
+            <option value="25">25</option> 
+            <option value="26">26</option> 
+            <option value="27">27</option> 
+            <option value="28">28</option> 
+            <option value="29">29</option> 
+            <option value="30">30</option> 
+            <option value="31">31</option> 
+          </select> 
+        </div> 
+        <div class="col-sm-3"> 
+          <select class="form-select" required> 
+            <option value="">Month</option> 
+            <option value="1">January</option> 
+            <option value="2">February</option> 
+            <option value="3">March</option> 
+            <option value="4">April</option> 
+            <option value="5">May</option> 
+            <option value="6">June</option> 
+            <option value="7">July</option> 
+            <option value="8">August</option> 
+            <option value="9">September</option> 
+            <option value="10">October</option> 
+            <option value="11">November</option> 
+            <option value="12">December</option> 
+          </select> 
+        </div> 
+        <div class="col-sm-3"> 
+          <select class="form-select"> 
+            <option>Year</option> 
+          </select> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <label class="col-sm-3 col-form-label" for="postalAddress" 
+          >Postal Address:</label 
+        > 
+        <div class="col-sm-9"> 
+          <textarea 
+            rows="3" 
+            class="form-control" 
+            id="postalAddress" 
+            placeholder="Postal Address" 
+            required 
+          ></textarea> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <label class="col-sm-3 col-form-label" for="ZipCode">Zip Code:</label> 
+        <div class="col-sm-9"> 
+          <input 
+            type="text" 
+            class="form-control" 
+            id="ZipCode" 
+            placeholder="Zip Code" 
+            required 
+          /> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <label class="col-sm-3 col-form-label" for="uploadImage" 
+          >Upload Image:</label 
+        > 
+        <div class="col-sm-9"> 
+          <input type="file" class="form-control" id="uploadImage" /> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <label class="col-sm-3 col-form-label">Gender:</label> 
+        <div class="col-sm-9 mt-2"> 
+          <div class="form-check form-check-inline"> 
+            <input 
+              type="radio" 
+              class="form-check-input" 
+              name="gender" 
+              id="radioMale" 
+            /> 
+            <label class="form-check-label" for="radioMale">Male</label> 
+          </div> 
+          <div class="form-check form-check-inline"> 
+            <input 
+              type="radio" 
+              class="form-check-input" 
+              name="gender" 
+              id="radioFemale" 
+            /> 
+            <label class="form-check-label" for="radioFemale">Female</label> 
+          </div> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <div class="col-sm-9 offset-sm-3"> 
+          <div class="form-check"> 
+            <input 
+              class="form-check-input" 
+              type="checkbox" 
+              id="checkAgree" 
+              value="agree" 
+            /> 
+            <label class="form-check-label" for="checkAgree" 
+              >I agree to the <a href="#">Terms and Conditions</a></label 
+            > 
+          </div> 
+        </div> 
+      </div> 
+      <div class="row mb-3"> 
+        <div class="col-sm-9 offset-sm-3"> 
+          <input type="submit" class="btn btn-primary" value="Submit" /> 
+          <input type="reset" class="btn btn-secondary ms-2" value="Reset" /> 
+        </div> 
+      </div> 
+    </form> 
+  </div>
+
+
+  <button type="button" class="btn btn-primary">Primary</button> 
+<button type="button" class="btn btn-secondary">Secondary</button> 
+<button type="button" class="btn btn-success">Success</button> 
+<button type="button" class="btn btn-danger">Danger</button> 
+<button type="button" class="btn btn-warning">Warning</button> 
+<button type="button" class="btn btn-info">Info</button>     
+<button type="button" class="btn btn-dark">Dark</button> 
+<button type="button" class="btn btn-light">Light</button> 
+<button type="button" class="btn btn-link">Link</button> 
+
+<button type="button" class="btn btn-primary btn-lg">Large 
+button</button> 
+<button type="button" class="btn btn-secondary btn-lg">Large 
+button</button> 
+
+
+
+<div class="btn-toolbar"> 
+  <div class="btn-group me-2"> 
+    <button type="button" class="btn btn-primary"> 
+      <i class="bi-fonts"></i> 
+    </button> 
+    <button type="button" class="btn btn-primary"> 
+      <i class="bi-type-bold"></i> 
+    </button> 
+    <button type="button" class="btn btn-primary"> 
+      <i class="bi-type-italic"></i> 
+    </button> 
+    <button type="button" class="btn btn-primary"> 
+      <i class="bi-type-underline"></i> 
+    </button> 
+  </div> 
+  <div class="btn-group me-2"> 
+    <button type="button" class="btn btn-primary"> 
+      <i class="bi-text-left"></i> 
+    </button> 
+    <button type="button" class="btn btn-primary"> 
+      <i class="bi-text-center"></i> 
+    </button> 
+    <button type="button" class="btn btn-primary"> 
+      <i class="bi-text-right"></i> 
+    </button> 
+    <button type="button" class="btn btn-primary"> 
+      <i class="bi-justify"></i> 
+    </button> 
+  </div> 
+  <div class="btn-group"> 
+    <button type="button" class="btn btn-primary"> 
+      <i class="bi-code"></i> 
+    </button> 
+  </div> 
+</div> 
+
+<!-- Large button group --> 
+<div class="btn-group mb-2 btn-group-lg"> 
+  <button type="button" class="btn btn-primary">Home</button> 
+  <button type="button" class="btn btn-primary">About</button> 
+  <button type="button" class="btn btn-primary">Services</button> 
+</div> 
+<br /> 
+<!-- Default button group --> 
+<div class="btn-group mb-2"> 
+  <button type="button" class="btn btn-primary">Home</button> 
+  <button type="button" class="btn btn-primary">About</button> 
+  <button type="button" class="btn btn-primary">Services</button> 
+</div> 
+<br /> 
+<!-- Small button group --> 
+<div class="btn-group btn-group-sm"> 
+  <button type="button" class="btn btn-primary">Home</button> 
+  <button type="button" class="btn btn-primary">About</button> 
+  <button type="button" class="btn btn-primary">Services</button> 
+</div> 
+
+<div class="btn-group"> 
+  <a href="#" class="btn btn-primary">Home</a> 
+  <a href="#" class="btn btn-primary">About</a> 
+  <div class="btn-group"> 
+    <a 
+      href="#" 
+      class="btn btn-primary dropdown-toggle" 
+      data-bs-toggle="dropdown" 
+      >Services</a 
+    > 
+    <div class="dropdown-menu"> 
+      <a class="dropdown-item" href="#">Web Design</a> 
+      <a class="dropdown-item" href="#">Web Development</a> 
+    </div> 
+  </div> 
+</div>
+
+
+
+ <div class="m-4"> 
+    <div class="card text-center"> 
+      <div class="card-header"> 
+        <ul class="nav nav-tabs card-header-tabs" id="myTab"> 
+          <li class="nav-item"> 
+            <a href="#home" class="nav-link active" data-bs-toggle="tab" 
+              >Home</a 
+            > 
+          </li> 
+          <li class="nav-item"> 
+            <a href="#profile" class="nav-link" data-bs-toggle="tab">Profile</a> 
+          </li> 
+          <li class="nav-item"> 
+            <a href="#messages" class="nav-link" data-bs-toggle="tab" 
+              >Messages</a 
+            > 
+          </li> 
+        </ul> 
+      </div> 
+      <div class="card-body"> 
+        <div class="tab-content"> 
+          <div class="tab-pane fade show active" id="home"> 
+            <h5 class="card-title">Home tab content</h5> 
+            <p class="card-text"> 
+              Here is some example text to make up the tab's content. Replace it 
+              with your own text anytime. 
+            </p> 
+            <a href="#" class="btn btn-primary">Go somewhere</a> 
+          </div> 
+          <div class="tab-pane fade" id="profile"> 
+            <h5 class="card-title">Profile tab content</h5> 
+            <p class="card-text"> 
+              Here is some example text to make up the tab's content. Replace it 
+              with your own text anytime. 
+            </p> 
+            <a href="#" class="btn btn-primary">Go somewhere</a> 
+          </div> 
+          <div class="tab-pane fade" id="messages"> 
+            <h5 class="card-title">Messages tab content</h5> 
+            <p class="card-text"> 
+              Here is some example text to make up the tab's content. Replace it 
+              with your own text anytime. 
+            </p> 
+            <a href="#" class="btn btn-primary">Go somewhere</a> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+
+
+  
+    </body> 
+
+
+</html> 
