@@ -1,0 +1,134 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    overflow-x: hidden;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+body.dark {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #ecf0f1;
+}
+.navbar {
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://via.placeholder.com/1920x1080?text=Hero+Background') no-repeat center/cover;
+    background-attachment: fixed; /* Parallax effect */
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+}
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+.section {
+    padding: 5rem 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #764ba2;
+}
+.timeline-item {
+    margin-bottom: 2rem;
+    padding-left: 20px;
+    position: relative;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: #764ba2;
+    border-radius: 50%;
+}
+.portfolio-filter .btn {
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+.portfolio-filter .btn:hover {
+    transform: scale(1.1);
+}
+.portfolio-item {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+.portfolio-item.show {
+    display: block;
+}
+footer {
+    background: #333;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
+}
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.theme-toggle:hover {
+    background: rgba(255,255,255,1);
+}
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+    .hero { height: 80vh; }
+    .section { padding: 3rem 0; min-height: auto; }
+    .timeline { padding-left: 20px; }
+    .portfolio-filter .btn { margin: 0.25rem; }
+}
