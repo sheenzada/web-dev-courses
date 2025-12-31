@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InamUllah | Modern Portfolio</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#6c63ff;
+  --dark:#0f172a;
+  --light:#f8fafc;
+}
+
+/* Global */
+body{
+  font-family: 'Segoe UI', system-ui;
+  background: linear-gradient(120deg,#eef2ff,#f8fafc);
+  color:#0f172a;
+}
+
+/* Navbar */
+.navbar{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,.75);
+}
+.navbar-brand{
+  font-weight:800;
+  color:var(--primary);
+}
+.nav-link{
+  font-weight:500;
+}
+.nav-link:hover{
+  color:var(--primary);
+}
+
+/* Hero */
+.hero{
+  padding:100px 0;
+}
+.hero-title{
+  font-size:3rem;
+  font-weight:900;
+}
+.hero span{
+  color:var(--primary);
+}
+
+/* Buttons */
+.btn-main{
+  background:var(--primary);
+  color:white;
+  border-radius:30px;
+  padding:12px 32px;
+  border:none;
+}
+.btn-main:hover{
+  background:#584dff;
+}
+
+/* Cards */
+.glass-card{
+  background:rgba(255,255,255,.85);
+  backdrop-filter: blur(14px);
+  border-radius:18px;
+  border:none;
+  transition:.4s;
+}
+.glass-card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 25px 50px rgba(0,0,0,.15);
+}
+.icon-box{
+  width:60px;
+  height:60px;
+  background:linear-gradient(135deg,var(--primary),#9f9cff);
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.6rem;
+}
+
+/* Section titles */
+.section-title{
+  font-weight:800;
+}
+
+/* Footer */
+footer{
+  background:var(--dark);
+  color:#cbd5f5;
+}
+footer a{
+  color:#cbd5f5;
+  text-decoration:none;
+}
+footer a:hover{
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+<div class="container">
+  <a class="navbar-brand" href="#">InamUllah</a>
+  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="navbar-nav ms-auto align-items-lg-center">
+      <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+      <li class="nav-item ms-lg-3">
+        <a class="btn btn-main">Join Now</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero text-center">
+<div class="container">
+  <h1 class="hero-title mb-3">
+    Build <span>Beautiful Websites</span><br>Like a Professional
+  </h1>
+  <p class="lead text-muted mb-4">
+    Learn HTML, CSS, JavaScript & Bootstrap with real-world design
+  </p>
+  <a class="btn btn-main btn-lg">Start Learning</a>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section class="py-5">
+<div class="container">
+  <h2 class="section-title text-center mb-5">What You Will Learn</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-3">
+      <div class="card glass-card p-4 text-center">
+        <div class="icon-box mx-auto mb-3"><i class="bi bi-filetype-html"></i></div>
+        <h5>HTML5</h5>
+        <p class="text-muted">Structure modern websites</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="card glass-card p-4 text-center">
+        <div class="icon-box mx-auto mb-3"><i class="bi bi-palette"></i></div>
+        <h5>CSS3</h5>
+        <p class="text-muted">Create stunning UI designs</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="card glass-card p-4 text-center">
+        <div class="icon-box mx-auto mb-3"><i class="bi bi-code-slash"></i></div>
+        <h5>JavaScript</h5>
+        <p class="text-muted">Add interactions & logic</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="card glass-card p-4 text-center">
+        <div class="icon-box mx-auto mb-3"><i class="bi bi-bootstrap"></i></div>
+        <h5>Bootstrap</h5>
+        <p class="text-muted">Responsive design faster</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 text-center">
+<div class="container">
+  <div class="glass-card p-5">
+    <h2 class="fw-bold mb-3">Ready to Become a Web Developer?</h2>
+    <p class="text-muted mb-4">Start your journey today with modern UI skills</p>
+    <a class="btn btn-main btn-lg">Enroll Now</a>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-4">
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-6 text-center text-md-start">
+      © 2025 InamUllah Portfolio
+    </div>
+    <div class="col-md-6 text-center text-md-end">
+      <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Contact</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
