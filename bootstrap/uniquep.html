@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creative & Stylish Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Pacifico&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #111;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Abstract Shapes & Background Effects */
+    .background-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      background: linear-gradient(135deg, #ff6f61, #6a82fb);
+      animation: float 20s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+      }
+      50% {
+        transform: translateY(-50px) translateX(50px);
+      }
+    }
+
+    /* Header / Hero with animated text */
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: #fff;
+      letter-spacing: 2px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    header p {
+      font-size: 1.5rem;
+      max-width: 700px;
+      line-height: 1.6;
+      color: #eee;
+    }
+
+    /* Sections styling */
+    section {
+      padding: 80px 20px;
+      position: relative;
+    }
+
+    /* About Me & Skills */
+    #about h2, #skills h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    #about p {
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Skills bars */
+    .skill {
+      margin-bottom: 20px;
+    }
+    .skill-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .progress {
+      height: 15px;
+      background-color: #333;
+      border-radius: 10px;
+    }
+    .progress-bar {
+      background: linear-gradient(135deg, #ff6f61, #6a82fb);
+    }
+
+    /* Portfolio/Projects with abstract layout */
+    #projects h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .project {
+      flex: 1 1 calc(33% - 40px);
+      background: #222;
+      border-radius: 15px;
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.4);
+    }
+    .project-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .project-desc {
+      font-size: 1rem;
+      color: #ccc;
+      text-align: center;
+    }
+
+    /* Contact section with stylish button */
+    #contact h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #contact p {
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-align: center;
+      color: #eee;
+    }
+    .btn-styled {
+      background: linear-gradient(135deg, #ff6f61, #6a82fb);
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn-styled:hover {
+      background: linear-gradient(135deg, #6a82fb, #ff6f61);
+      transform: scale(1.05);
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: #111;
+      color: #777;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    footer p {
+      margin: 10px 0;
+    }
+
+    /* Responsive tweaks */
+    @media(max-width: 992px){
+      .project {
+        flex: 1 1 calc(50% - 40px);
+      }
+    }
+    @media(max-width: 576px){
+      .project {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Abstract animated background shapes -->
+  <div class="background-shapes">
+    <div class="shape" style="width: 100px; height: 100px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+    <div class="shape" style="width: 150px; height: 150px; top: 70%; left: 80%; animation-delay: 5s;"></div>
+    <div class="shape" style="width: 80px; height: 80px; top: 40%; left: 50%; animation-delay: 10s;"></div>
+    <div class="shape" style="width: 120px; height: 120px; top: 20%; left: 90%; animation-delay: 7s;"></div>
+  </div>
+
+  <!-- Hero / Intro -->
+  <header>
+    <h1>Hello, I'm a Creative Developer</h1>
+    <p>Designing innovative digital experiences with a touch of art and technology. Let’s create something extraordinary together.</p>
+  </header>
+
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a passionate digital artist and developer who loves to push boundaries and explore new ideas. My focus is on creating immersive, stylish websites and interactive experiences that captivate users and communicate your brand identity effectively.
+    </p>
+    <p>
+      With a blend of modern design principles, animation, and creative layouts, I craft digital solutions that stand out from the crowd.
+    </p>
+  </section>
+
+  <!-- Skills & Expertise -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="container">
+      <div class="skill">
+        <div class="skill-name">Creative Coding</div>
+        <div class="progress">
+          <div class="progress-bar" style="width: 90%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">UI/UX Design</div>
+        <div class="progress">
+          <div class="progress-bar" style="width: 85%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Animation & Motion</div>
+        <div class="progress">
+          <div class="progress-bar" style="width: 80%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Web Development</div>
+        <div class="progress">
+          <div class="progress-bar" style="width: 95%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects with stylish cards -->
+  <section id="projects">
+    <h2>My Creative Works</h2>
+    <div class="container">
+      <div class="project-grid">
+        <div class="project">
+          <div class="project-title">Abstract Interactive</div>
+          <div class="project-desc">A dynamic interactive experience using CSS and JavaScript animations with no images involved.</div>
+        </div>
+        <div class="project">
+          <div class="project-title">Stylish Portfolio</div>
+          <div class="project-desc">A minimalistic yet eye-catching portfolio with animated text and floating shapes.</div>
+        </div>
+        <div class="project">
+          <div class="project-title">Creative Landing Page</div>
+          <div class="project-desc">A landing page with animated backgrounds, modern typography, and engaging transitions.</div>
+        </div>
+        <div class="project">
+          <div class="project-title">Artistic Dashboard</div>
+          <div class="project-desc">A sleek dashboard design with animated charts and abstract background elements.</div>
+        </div>
+        <div class="project">
+          <div class="project-title">Motion Graphics Site</div>
+          <div class="project-desc">A site that uses CSS and JS animations to showcase motion graphics and creative ideas.</div>
+        </div>
+        <div class="project">
+          <div class="project-title">Innovative UI Kit</div>
+          <div class="project-desc">A collection of stylish UI components with animated effects and modern design language.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Call to Action -->
+  <section id="contact">
+    <h2>Let's Create Together</h2>
+    <p>I'm excited to work on innovative projects. Reach out, and let's bring your ideas to life with style and creativity.</p>
+    <button class="btn-styled">Get in Touch</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Your Name. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

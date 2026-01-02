@@ -12,3 +12,53 @@ form { max-width: 500px; margin: auto; }
 input, textarea { width: 100%; padding: 0.5rem; margin: 0.5rem 0; }
 button { background-color: #D2691E; color: white; padding: 0.5rem; border: none; cursor: pointer; }
 button:hover { background-color: #A0522D; }
+
+
+.img-box{
+    width: 370px;
+    height: 360px;
+    /* /* background-color: rgb(red, green, blue , orange) */
+    background-color:green;
+    
+}
+.home-img .img-box .img-item{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #1f242d;
+        border-radius: 50%;
+        border: .1px solid #1f242d;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .home-img .img-box .img-item img {
+        position: absolute;
+        top: 30px;
+        mix-blend-mode: lighten;
+        display: block;
+        width: 85%;
+        object-fit: cover;
+    }
+    .bars-animation {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        z-index: -1;
+    }
+    .bars-animation .bar {
+        width: 100%;
+        height: 100%;   
+        background: #1f242d;
+        border: 2px solid red;
+        transform: translateY(-100%);
+        animation: show-bars .5s ease-in-out forwards;
+        animation-delay: calc(.1s * var(--i));
+    }
+    @keyframes show-bars {
+        100% {
+            transform: translateY(0%);
+        }
+    }
