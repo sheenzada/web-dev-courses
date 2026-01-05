@@ -3,27 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Our Beautiful Family Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .hero {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+        }
+        .section:nth-child(even) {
+            background: rgba(240, 240, 240, 0.9);
+        }
+        .card {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .progress-bar {
+            transition: width 2s ease-in-out;
+        }
+        footer {
+            background: #343a40;
+            color: white;
+            padding: 40px 0;
+        }
+        .modal-content {
+            border-radius: 15px;
+        }
+    </style>
 </head>
 <body>
-    <div class="sci">
-  <a href="https://github.com/yourusername" target="_blank">
-    <i class="bx bxl-github"></i>
-     <i class="bi bi-github"></i>
-  </a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home"><i class="bi bi-house-heart"></i> Our Family</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <a href="https://www.linkedin.com/in/yourusername" target="_blank">
-    <i class="bx bxl-linkedin"></i>
-  </a>
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="container text-center">
+            <h1 class="display-4">Welcome to Our Family World</h1>
+            <p class="lead">Building memories, sharing love, and providing services for families everywhere.</p>
+            <a href="#about" class="btn btn-primary btn-lg">Learn More</a>
+        </div>
+    </section>
 
-  <a href="https://wa.me/923XXXXXXXXX" target="_blank">
-    <i class="bx bxl-whatsapp"></i>
-  </a>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>About Our Family</h2>
+                    <p>We are a close-knit family dedicated to helping other families thrive. From organizing events to offering counseling, our mission is to create a supportive community. Founded in 2020, we've grown through love, laughter, and hard work.</p>
+                    <p>Our story began with a simple idea: families should support each other. Today, we offer a range of services tailored to modern family needs.</p>
+                    <blockquote class="blockquote">
+                        <p>"Family is not an important thing, it's everything." – Michael J. Fox</p>
+                    </blockquote>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/600x400" class="img-fluid rounded" alt="Family Photo">
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <a href="https://www.youtube.com/@yourchannel" target="_blank">
-    <i class="bx bxl-youtube"></i>
-  </a>
-</div>
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-calendar-event display-4 text-primary"></i>
+                            <h5 class="card-title">Family Events</h5>
+                            <p class="card-text">Organize reunions, birthdays, and celebrations with our expert planning.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-heart display-4 text-danger"></i>
+                            <h5 class="card-title">Counseling</h5>
+                            <p class="card-text">Professional family therapy to strengthen bonds and resolve conflicts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="bi bi-camera display-4 text-success"></i>
+                            <h5 class="card-title">Photography</h5>
+                            <p class="card-text">Capture precious moments with our family photography services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Why Choose Us?</h5>
+                            <ul>
+                                <li>Personalized approach for every family.</li>
+                                <li>Affordable pricing with flexible packages.</li>
+                                <li>Experienced team with years of expertise.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Testimonials</h5>
+                            <p>"They made our reunion unforgettable!" – The Smith Family</p>
+                            <p>"Best counseling we've ever had." – The Johnsons</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Skills</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Event Planning</h4>
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%;" id="eventSkill"></div>
+                    </div>
+                    <h4>Counseling</h4>
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 0%;" id="counselSkill"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Photography</h4>
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" id="photoSkill"></div>
+                    </div>
+                    <h4>Community Building</h4>
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%;" id="communitySkill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Get In Touch</h4>
+                    <p><i class="bi bi-geo-alt"></i> 123 Family Lane, Hometown, USA</p>
+                    <p><i class="bi bi-phone"></i> (123) 456-7890</p>
+                    <p><i class="bi bi-envelope"></i> info@ourfamily.com</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register for Updates</button>
+                </div>
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Register for Family Updates</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="regName" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="regEmail" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" id="regPhone" placeholder="Phone Number">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" id="regInterest">
+                                <option selected>Interest</option>
+                                <option>Events</option>
+                                <option>Counseling</option>
+                                <option>Photography</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 Our Family. All rights reserved. | Follow us: 
+                <a href="#" class="text-white"><i class="bi bi-facebook"></i></a> 
+                <a href="#" class="text-white"><i class="bi bi-twitter"></i></a> 
+                <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animate skills on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.getElementById('eventSkill').style.width = '95%';
+                    document.getElementById('counselSkill').style.width = '90%';
+                    document.getElementById('photoSkill').style.width = '85%';
+                    document.getElementById('communitySkill').style.width = '88%';
+                }
+            });
+        });
+        observer.observe(document.getElementById('skills'));
+
+        // Contact form validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !email || !message) {
+                alert('Please fill all fields.');
+                return;
+            }
+            alert('Message sent! (Demo only.)');
+            this.reset();
+        });
+
+        // Registration form validation
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const regName = document.getElementById('regName').value.trim();
+            const regEmail = document.getElementById('regEmail').value.trim();
+            if (!regName || !regEmail) {
+                alert('Please fill name and email.');
+                return;
+            }
+            alert('Registered successfully! (Demo only.)');
+            this.reset();
+            bootstrap.Modal.getInstance(document.getElementById('registerModal')).hide();
+        });
+    </script>
 </body>
 </html>
