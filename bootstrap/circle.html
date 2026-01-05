@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/booxicons@2.1.4/css/boxicons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
 </head>
 <style>
     
@@ -175,11 +176,12 @@
     .home-img .img-box::before,
     .home-img .img-box::after
     {
-        content: '';
+        content: 'red';
         position: absolute;
         width: 500px;
         height: 500px;
-        background: conic-gradient(transparent,transparent,transparent,#7cf03d);
+        background: conic-gradient(transparent,transparent,transparent,#50b1e9);
+        background: conic-gradient(transparent,transparent,transparent,#f1a71c);
         transform: rotate(0deg);
         animation: rotate-border 10s linear infinite;
     }
@@ -222,9 +224,9 @@
         width: 100%;
         height: 100%;   
         background: #1f242d;
-        border: 2px solid red;
+        border: 2px solid green;
         transform: translateY(-100%);
-        animation: show-bars .5s ease-in-out forwards;
+        animation: show-bars .9s ease-in-out forwards;
         animation-delay: calc(.2s * var(--i));
     }
     @keyframes show-bars {
@@ -232,15 +234,21 @@
             transform: translateY(0%);
         }
     }
+
+    .sci a{
+    display:inline-flex;
+    border:2px solid #7cf03d;
+    border-radius:50%;
+    padding:8px;
+    font-size:20px;
+    margin:0 5px;
+    transition:.5s;
+}
+.sci a:hover{background:#7cf03d;color:#1f242d;}
 </style>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <!-- <a class="navbar-brand" href="#"><i class="fas fa-palette"></i> My Portfolio</a> -->
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav"> -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="port.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="circle.html">Portfolio</a></li>
@@ -250,20 +258,7 @@
             </div>
         </div>
     </nav>
-    <!-- <nav class="navbar">
-        <a href="#" class="logo">Portfolio</a>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="port.html"></a></li>
-            <li><a href="portfolio.html"></a></li>
-            <li><a href="contact.html"></a></li>
-            <li><a href="about.html"></a></li>
-        </ul>
-    </nav> -->
+   
     <div class="bars-animation">
         <div class="bar" style="--i:6;"></div>
         <div class="bar" style="--i:5;"></div>
@@ -285,14 +280,16 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam doloremque hic iste, molestiae minima asperiores pariatur minus? Cupiditate, reiciendis? Vitae, porro dolores rem alias reprehenderit eius laborum autem fugiat maxime!</p>
             <div class="btn-sci">
 
-                <a href="#" class="btn">Download CV</a>
-                <div class="sci">
-
-                    <a href="#"><i class="bx bxl-github"></i></a>
-                    <a href="#"><i class="bx bxl-linkedin"></i></a>
-                    <a href="#"><i class="bx bxl-twitter"></i></a>
-                    <a href="#"><i class="bx bxl-youtube"></i></a>
-                </div>
+                <!-- <a href="#" class="btn">Download CV</a> -->
+            <div class="d-flex align-items-center mt-4">
+          <a href="#" class="btn me-3">Download CV</a>
+          <div class="sci">
+            <a href="#"><i class="bx bxl-github"></i></a>
+            <a href="#"><i class="bx bxl-linkedin"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+            <a href="#"><i class="bx bxl-youtube"></i></a>
+          </div>
+        </div>
             </div>
         </div>
         <div class="home-img">
@@ -303,5 +300,7 @@
             </div>
         </div>
     </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
