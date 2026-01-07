@@ -263,6 +263,10 @@
     .section{
         min-height: 40vh;
     }
+    .nav-link.active {
+    color: #7cf03d !important;
+}
+
 </style>
 
 <body>
@@ -274,13 +278,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#port.html`">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills.html">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#project.html">Project</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact.html">Contact</a></li>
+                <!-- <ul class="navbar-nav ms-auto"> -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="#port">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Services">Services</a></li> -->
+                    <ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+    <li class="nav-item"><a class="nav-link" href="#portfolio">Project</a></li>
+    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+
+                    <!-- <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
                 </ul>
             </div>
         </div>
@@ -296,7 +308,8 @@
         <div class="bar" style="--i:2;"></div>
         <div class="bar" style="--i:1;"></div>
     </div>
-    <section class="home">
+    <section class="home" id="home">
+
         <div class="home-info">
             <h1>InamUllah</h1>
             <h2>I'm a
@@ -334,8 +347,9 @@
     </section>
 
     <section id="services" class="section bg-light">
+
     <div class="container">
-       
+
         <h2 class="text-center mb-5" style="color: black;">
             <i class="fas fa-tools"></i> Services
         </h2>
@@ -383,18 +397,9 @@
 
 
 
-      <section id="about" class="section bg-light">
-         <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <a class="nav-link" href="#about">About</a>
-                    <li class="nav-item"><a class="nav-link" href="#port.html`">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#circle.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact.html">Contact</a></li>
-                </ul>
-            </div>
+<section id="about" class="section bg-light">
         <div class="container">
-            <h2 class="text-center mb-5"><i class="fas fa-user"></i> About Me</h2>
+            <h2 class="text-center mb-5"><i class="fas fa-user"></i> <a href="#about"></a> About Me</h2>
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4">
                      <div class="home-img">
@@ -414,10 +419,9 @@
         </div>
     </section>
 
-    <section class="section" id="Skills_container">
+    <section class="section" id="skills">
     <div class="container">
         <h2 class="text-center mb-5">
-            <i class="fas fa-chart-line"></i> Skills
         </h2>
         <div class="row">
 
@@ -465,7 +469,7 @@
     </div>
 </section>
 
-
+<!-- 
         <div class="container" >
             <h2 class="text-center mb-5"><i class="fas fa-chart-line"></i> Skills</h2>
             <div class="row">
@@ -495,7 +499,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>  -->
 
     <section class="section bg-light">
         <div class="container">
