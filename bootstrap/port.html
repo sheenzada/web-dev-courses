@@ -383,9 +383,10 @@
 
 
 
-      <section class="section bg-light">
+      <section id="about" class="section bg-light">
          <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <a class="nav-link" href="#about">About</a>
                     <li class="nav-item"><a class="nav-link" href="#port.html`">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#circle.html">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about.html">About</a></li>
@@ -752,7 +753,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'rough' });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
