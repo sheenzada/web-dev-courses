@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Management System</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Optional: Add your custom CSS file here -->
+  </head>
+  <body class="bg-light">
+    <!-- Header Section -->
+    <div
+      class="bg-primary text-white py-4 px-5 d-flex justify-content-between align-items-center"
+    >
+      <h1 class="h3 mb-0">Student Management System</h1>
+      <img
+        src="../Acadmey/IMG_20220503_135202_685.jpg"
+        alt="Student Management System"
+        class="img-fluid"
+        style="max-width: 150px"
+      />
+    </div>
+
+    <!-- Navigation Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="task.html">Home</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="Registration.html">Registration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="StudentRecord.html">Student Record</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="Edit.html">Edit</a></li>
+      </ul>
+    </nav>
+
+    <!-- Add Student Form -->
+    <div class="container mt-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Add New Student</h5>
+        </div>
+        <div class="card-body">
+          <form id="studentForm">
+            <div class="form-group">
+              <input
+                type="text"
+                id="firstName"
+                placeholder="First Name"
+                required
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="lastName"
+                placeholder="Last Name"
+                required
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                required
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="contact"
+                placeholder="Contact Number"
+                required
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="college"
+                placeholder="College Name"
+                required
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <select id="qualification" required class="form-control">
+                <option value="" disabled selected>Qualification</option>
+                <option value="Icom">Icom</option>
+                <option value="ICS">ICS</option>
+                <option value="Pre Medical">Pre Medical</option>
+                <option value="Pre Engineering">Pre Engineering</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="course"
+                placeholder="Course"
+                required
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                id="fees"
+                placeholder="Fees"
+                required
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                id="paid"
+                placeholder="Paid Amount"
+                required
+                class="form-control"
+              />
+            </div>
+            <button
+              type="button"
+              onclick="submitStudent()"
+              class="btn btn-success"
+            >
+              Add Student
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="container mt-4">
+      <button onclick="toggleForm()" class="btn btn-primary mb-3">
+        Add New Student
+      </button>
+      <div class="table-responsive">
+        <table id="studentTable" class="table table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>College Name</th>
+              <th>Qualification</th>
+              <th>Course</th>
+              <th>Fees</th>
+              <th>Paid</th>
+              <th>Remaining</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <!-- Rows will be dynamically inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      let students = [
+        {
+          firstName: "Usama",
+          lastName: "Humaid",
+          email: "Haumid@gmail.com",
+          contact: "03231415990",
+          college: "PPI",
+          qualification: "Icom",
+          course: "PHP",
+          fees: 250,
+          paid: 200,
+          remaining: 50,
+        },
+        {
+          firstName: "Sumaira",
+          lastName: "Malik",
+          email: "maliksubhia@gmail.com",
+          contact: "03555123458",
+          college: "PPI",
+          qualification: "Icom",
+          course: "PHP",
+          fees: 2500,
+          paid: 2000,
+          remaining: 500,
+        },
+      ];
+
+      function renderTable() {
+        const tableBody = document.getElementById("studentTableBody");
+        tableBody.innerHTML = students
+          .map(
+            (student, index) => `
+                <tr>
+                    <td>${student.firstName}</td>
+                    <td>${student.lastName}</td>
+                    <td>${student.email}</td>
+                    <td>${student.contact}</td>
+                    <td>${student.college}</td>
+                    <td>${student.qualification}</td>
+                    <td>${student.course}</td>
+                    <td>${student.fees}</td>
+                    <td>${student.paid}</td>
+                    <td>${student.remaining}</td>
+                    <td>
+                        <button onclick="editStudent(${index})" class="btn btn-warning btn-sm">Edit</button>
+                        <button onclick="deleteStudent(${index})" class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+            `
+          )
+          .join("");
+      }
+
+      function toggleForm() {
+        const formContainer = document.getElementById("formContainer");
+        formContainer.classList.toggle("d-none");
+      }
+
+      function submitStudent() {
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const contact = document.getElementById("contact").value.trim();
+        const college = document.getElementById("college").value.trim();
+        const qualification = document.getElementById("qualification").value;
+        const course = document.getElementById("course").value.trim();
+        const fees = parseFloat(document.getElementById("fees").value);
+        const paid = parseFloat(document.getElementById("paid").value);
+        const remaining = fees - paid;
+
+        if (
+          !firstName ||
+          !lastName ||
+          !email ||
+          !contact ||
+          !college ||
+          !qualification ||
+          !course ||
+          isNaN(fees) ||
+          isNaN(paid)
+        ) {
+          alert("Please fill all fields correctly.");
+          return;
+        }
+
+        if (!validateEmail(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        students.push({
+          firstName,
+          lastName,
+          email,
+          contact,
+          college,
+          qualification,
+          course,
+          fees,
+          paid,
+          remaining,
+        });
+        renderTable();
+        toggleForm();
+      }
+
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+      }
+
+      function deleteStudent(index) {
+        students.splice(index, 1);
+        renderTable();
+      }
+
+      function editStudent(index) {
+        alert("Edit functionality is not implemented yet.");
+      }
+
+      // Initial rendering of the table
+      renderTable();
+    </script>
+  </body>
+</html>

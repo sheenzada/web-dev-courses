@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .main {
+            width: 100vw;
+            height: 50vh;
+            background-color: #0d96d6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #fff;
+            text-align: center;
+            font-size: 40px;
+            padding: 20px;
+        }
+
+        .main img {
+            width: 150px;
+            margin-top: 10px;
+        }
+
+        .box {
+            width: 80vw;
+            background: #ff9800;
+            padding: 15px;
+            margin: -40px auto 40px;
+            text-align: center;
+        }
+
+        .box ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .box li {
+            display: inline;
+            margin: 0 20px;
+            font-size: 24px;
+        }
+
+        .box a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .box a:hover {
+            color: #333;
+        }
+
+        table {
+            width: 80vw;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0d96d6;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .add-button {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            width: 80vw;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .form-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0d96d6;
+        }
+
+        .form-container input,
+        .form-container select {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin: 10px 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0d96d6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .form-container button:hover {
+            background-color: #0b7cbb;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="main">
+        Student Management System
+        <img src="ss.jpg" alt="Student Management System">
+    </div>
+
+    <!-- Navigation Section -->
+    <div class="box">
+        <ul>
+            <li><a href="task.html">Home</a></li>
+            <li><a href="Registration.html">Registration</a></li>
+            <li><a href="StudentRecord.html">Student Record</a></li>
+            <li><a href="Edit.html">Edit</a></li>
+        </ul>
+    </div>
+
+    <!-- Add Student Form -->
+    <div class="form-container" id="formContainer">
+        <h3>Add New Student</h3>
+        <input type="text" id="firstName" placeholder="First Name" required>
+        <input type="text" id="lastName" placeholder="Last Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="contact" placeholder="Contact Number" required>
+        <input type="text" id="college" placeholder="College Name" required>
+        <select id="qualification" required>
+            <option value="" disabled selected>Qualification</option>
+            <option value="Icom">Icom</option>
+            <option value="ICS">ICS</option>
+            <option value="Pre Medical">Pre Medical</option>
+            <option value="Pre Engineering">Pre Engineering</option>
+            <!-- Add more qualifications as needed -->
+        </select>
+        <input type="text" id="course" placeholder="Course" required>
+        <input type="number" id="fees" placeholder="Fees" required>
+        <input type="number" id="paid" placeholder="Paid Amount" required>
+        <button onclick="submitStudent()">Add Student</button>
+    </div>
+
+    <!-- Table Section -->
+    <div class="add-button">
+        <button onclick="toggleForm()">Add New Student</button>
+    </div>
+    <table id="studentTable">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>College Name</th>
+            <th>Qualification</th>
+            <th>Course</th>
+            <th>Fees</th>
+            <th>Paid</th>
+            <th>Remaining</th>
+            <th>Actions</th>
+        </tr>
+    </table>
+
+    <script>
+        // Sample data
+        let students = [
+            {
+                firstName: 'Usama',
+                lastName: 'Humaid',
+                email: 'Haumid@gmail.com',
+                contact: '03231415990',
+                college: 'PPI',
+                qualification: 'Icom',
+                course: 'PHP',
+                fees: 250,
+                paid: 200,
+                remaining: 50
+            },
+            {
+                firstName: 'Sumaira',
+                lastName: 'Malik',
+                email: 'maliksubhia@gmail.com',
+                contact: '03555123458',
+                college: 'PPI',
+                qualification: 'Icom',
+                course: 'PHP',
+                fees: 2500,
+                paid: 2000,
+                remaining: 500
+            }
+            // Add more students as needed
+        ];
+
+        // Function to render the student table
+        function renderTable() {
+            const table = document.getElementById('studentTable');
+            // Clear existing rows except the header
+            table.innerHTML = `
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>College Name</th>
+                    <th>Qualification</th>
+                    <th>Course</th>
+                    <th>Fees</th>
+                    <th>Paid</th>
+                    <th>Remaining</th>
+                    <th>Actions</th>
+                </tr>
+            `;
+            // Add new rows for each student
+            students.forEach((student, index) => {
+                const row = table.insertRow();
+                row.innerHTML = `
+                    <td>${student.firstName}</td>
+                    <td>${student.lastName}</td>
+                    <td>${student.email}</td>
+                    <td>${student.contact}</td>
+                    <td>${student.college}</td>
+                    <td>${student.qualification}</td>
+                    <td>${student.course}</td>
+                    <td>${student.fees}</td>
+                    <td>${student.paid}</td>
+                    <td>${student.remaining}</td>
+                    <td>
+                        <button onclick="editStudent(${index})">Edit</button>
+                        <button onclick="deleteStudent(${index})">Delete</button>
+                    </td>
+                `;
+            });
+        }
+
+        // Function to toggle the add student form
+        function toggleForm() {
+            const formContainer = document.getElementById('formContainer');
+            formContainer.style.display = formContainer.style.display === 'none' || formContainer.style.display === '' ? 'block' : 'none';
+        }
+
+        // Function to submit a new student
+        function submitStudent() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const contact = document.getElementById('contact').value;
+            const college = document.getElementById('college').value;
+            const qualification = document.getElementById('qualification').value;
+            const course = document.getElementById('course').value;
+            const fees = parseFloat(document.getElementById('fees').value);
+            const paid = parseFloat(document.getElementById('paid').value);
+            const remaining = fees - paid;
+
+            if (firstName && lastName && email && contact && college && qualification && course && !isNaN(fees) && !isNaN(paid)) {
+                students.push({
+                    firstName,
+                    lastName,
+                    email,
+                    contact,
+                    college,
+                    qualification,
+                    course,
+                    fees,
+                    paid,
+                    remaining
+                });
+                renderTable();
+                toggleForm();
+            } else {
+                alert("Please fill all fields correctly.");
+            }
+        }
+
+        // Function to delete a student
+        function deleteStudent(index) {
+            students.splice(index, 1);
+            renderTable();
+        }
+
+        // Function to edit a student
+        function editStudent(index) {
+            // You can implement this function to allow editing of a student's details
+            alert("Edit functionality is not implemented yet.");
+        }
+
+        // Initial rendering of the table
+        renderTable();
+        function submitStudent() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const contact = document.getElementById('contact').value.trim();
+    const college = document.getElementById('college').value.trim();
+    const qualification = document.getElementById('qualification').value;
+    const course = document.getElementById('course').value.trim();
+    const fees = parseFloat(document.getElementById('fees').value);
+    const paid = parseFloat(document.getElementById('paid').value);
+    const remaining = fees - paid;
+
+    if (!firstName || !lastName || !email || !contact || !college || !qualification || !course || isNaN(fees) || isNaN(paid)) {
+        alert("Please fill all fields correctly.");
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    students.push({
+        firstName,
+        lastName,
+        email,
+        contact,
+        college,
+        qualification,
+        course,
+        fees,
+        paid,
+        remaining
+    });
+    renderTable();
+    toggleForm();
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+
+    </script>
+</body>
+
+</html>

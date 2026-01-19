@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reg view</title>
+
+</head>
+<style>
+#main{
+    width: 100vw;
+    height: 150vh;
+    margin: 0px;
+    border: grey 3px solid;
+    background: rgb(13, 130, 214);
+    text-align: center;
+    font-size: 50px;
+    background-repeat: no-repeat;
+}
+.slider{
+	overflow: hidden;
+}
+.slider .image {
+	position: relative;
+	left: 0px;
+	top: 3px;
+	width: 400%;
+	animation: slider 20s infinite;
+}
+.slider .image img{
+	width: 25%;
+    height: 100vh;
+    margin: 0px;
+	float: left;
+}
+@keyframes slider{
+	0%{left: 0%;}
+	25%{left: 0%;}
+	30%{left: -100%;}
+	55%{left: -100%;}
+	60%{left: -200%;}
+	85%{left: -200%;}
+	90%{left: -300%;}
+	100%{left: -300%;}
+}
+
+.box{
+    width: 82.0vw ;
+    padding: 15px;
+    background: orange;
+    margin-top: -459px;
+    margin-left: 113px;
+    }
+   .box li{
+        list-style-type: none;
+        display: inline;
+        overflow: hidden;
+        float: left;
+        padding: 60px;
+        font-size: 30px; 
+        margin-top: -55px;
+   }
+   .student a{
+       margin-top: 420px;
+         margin-left: 113px;
+         /* padding-inline: 5px; */
+   }
+   .box ,a{
+    text-decoration: none;
+   }
+
+
+</style>
+<body>
+    <div id="main"> Student Management System 
+        	<!-- slider start -->
+<div class="slider">
+     <div class="image"> 
+        <img src="img/ss.jpg">
+    </div>
+      <div class="image"> 
+        <img src="img/1.jfif">
+    </div>
+    <div class="image"> 
+        <img src="img/2.jfif">
+    </div>
+    <div class="image"> 
+        <img src="img/3.jfif">
+    </div>
+   
+    
+    <div class="box">
+        <ul>
+      <li>  <a href="task.html">Home</a></li>
+      <li> <a href="Registration.html">Registration</a></li>
+      <li> <a href="StudentRecord.html">Student Record</a></li>
+      <li>  <a href="Edit.html">Edit pro</a>
+    </ul>
+     </div>
+     <div class="student">
+      <a> <img src="img/pic-1.png"></a>  
+      <a> <img src="img/pic-2.png"> </a>
+      <a> <img src="img/pic-3.png"></a>
+      <a> <img src="img/pic-4.png"></a>
+     </div>
+</body>
+</html>
