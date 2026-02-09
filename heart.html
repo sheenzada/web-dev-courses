@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Heart Animation</title>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: #0b0b0b;
+        height: 100vh;
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+    }
+
+    .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        transform: rotate(45deg);
+        animation: floatUp 4s linear forwards;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -10px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: -10px;
+        top: 0;
+    }
+
+    @keyframes floatUp {
+        0% {
+            opacity: 1;
+            transform: translateY(0) rotate(45deg) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-600px) rotate(45deg) scale(1.8);
+        }
+    }
+
+    .text {
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 18px;
+        opacity: 0.8;
+    }
+</style>
+</head>
+<body>
+
+<div class="text">Click anywhere ❤️</div>
+
+<script>
+    document.addEventListener("click", function (e) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+
+        heart.style.left = e.clientX + "px";
+        heart.style.top = e.clientY + "px";
+
+        const size = Math.random() * 20 + 10;
+        heart.style.width = size + "px";
+        heart.style.height = size + "px";
+
+        const colors = ["#ff4d4d", "#ff1a75", "#ff66cc", "#ff0000"];
+        heart.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    });
+</script>
+
+</body>
+</html>
