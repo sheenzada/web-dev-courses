@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --sidebar-bg: #2c3e50;
+            --active-blue: #3498db;
+            --light-bg: #f4f7f6;
+        }
+
+        body { background-color: var(--light-bg); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* Sidebar & Navigation */
+        #sidebar {
+            width: 260px;
+            height: 100vh;
+            position: fixed;
+            background: var(--sidebar-bg);
+            color: white;
+            transition: 0.3s;
+            overflow-y: auto;
+        }
+
+        .nav-link {
+            color: #bdc3c7;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .submenu {
+            background: #1a252f;
+            display: none;
+            padding-left: 20px;
+        }
+
+        .submenu.show { display: block; }
+
+        /* Main Layout */
+        #main { margin-left: 260px; padding: 20px; transition: 0.3s; }
+
+        /* Dashboard Cards */
+        .stat-card {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+        }
+
+        .card-blue { background: #eef2ff; color: #4f46e5; }
+        .card-orange { background: #fff7ed; color: #c2410c; }
+        .card-green { background: #f0fdf4; color: #15803d; }
+        .card-purple { background: #faf5ff; color: #7e22ce; }
+
+        .page-content { display: none; }
+        .page-content.active { display: block; }
+
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <div class="p-4 text-center border-bottom border-secondary mb-3">
+        <img src="https://via.placeholder.com/60" class="rounded-circle mb-2" alt="Admin">
+        <h6>Muhammad Ali Anjum</h6>
+        <small class="text-muted">Admin</small>
+    </div>
+
+    <nav>
+        <a href="#" class="nav-link active" onclick="navigate('dashboard')">
+            <i class="fas fa-th-large me-3"></i> Dashboard
+        </a>
+
+        <div class="nav-item">
+            <a href="#" class="nav-link d-flex justify-content-between" onclick="toggleSub('pkgSub')">
+                <span><i class="fas fa-box me-3"></i> Packages</span>
+                <i class="fas fa-chevron-right small"></i>
+            </a>
+            <div id="pkgSub" class="submenu">
+                <a href="#" class="nav-link small" onclick="navigate('all-pkgs')">All Packages</a>
+                <a href="#" class="nav-link small">Add New Package</a>
+            </div>
+        </div>
+
+        <a href="#" class="nav-link" onclick="navigate('bookings-page')">
+            <i class="fas fa-calendar-check me-3"></i> Bookings
+        </a>
+        
+        <a href="#" class="nav-link" onclick="navigate('users-page')">
+            <i class="fas fa-users me-3"></i> User Management
+        </a>
+
+        <a href="#" class="nav-link" onclick="navigate('settings-page')">
+            <i class="fas fa-cog me-3"></i> System Settings
+        </a>
+    </nav>
+</div>
+
+<div id="main">
+    
+    <header class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded shadow-sm">
+        <h5 class="m-0 fw-bold">Admin Dashboard</h5>
+        <div class="d-flex align-items-center gap-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Search...">
+            <i class="fas fa-bell text-muted position-relative">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem;">3</span>
+            </i>
+        </div>
+    </header>
+
+    <div id="dashboard" class="page-content active">
+        <div class="row g-4 mb-4">
+            <div class="col-md-3">
+                <div class="stat-card card-blue">
+                    <i class="fas fa-users mb-2 fs-4"></i>
+                    <h4 class="fw-bold">5,420</h4>
+                    <p class="mb-0 small opacity-75">Total Users</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card card-orange">
+                    <i class="fas fa-calendar-alt mb-2 fs-4"></i>
+                    <h4 class="fw-bold">1,250</h4>
+                    <p class="mb-0 small opacity-75">Total Bookings</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card card-green">
+                    <i class="fas fa-hotel mb-2 fs-4"></i>
+                    <h4 class="fw-bold">120</h4>
+                    <p class="mb-0 small opacity-75">Total Hotels</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card card-purple">
+                    <i class="fas fa-chart-line mb-2 fs-4"></i>
+                    <h4 class="fw-bold">$52,300</h4>
+                    <p class="mb-0 small opacity-75">Monthly Revenue</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="table-container">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="fw-bold m-0">Recent Bookings</h6>
+                        <a href="#" class="text-primary small">View All</a>
+                    </div>
+                    <table class="table align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="small">User</th>
+                                <th class="small">Item</th>
+                                <th class="small">Date</th>
+                                <th class="small">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-semibold text-primary">Ahmed Khan</td>
+                                <td>Deluxe Hotel</td>
+                                <td class="text-muted">2024-05-12</td>
+                                <td><span class="badge bg-success">Confirmed</span></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold text-primary">Sarah Ali</td>
+                                <td>Luxury Car</td>
+                                <td class="text-muted">2024-05-10</td>
+                                <td><span class="badge bg-warning">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="table-container">
+                    <h6 class="fw-bold mb-3">New Hotels</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between small px-0">
+                            Mountain View Resort <span class="text-muted">Skardu</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between small px-0">
+                            Deluxe Hunza Hotel <span class="text-muted">Hunza</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="all-pkgs" class="page-content">
+        <h4 class="fw-bold mb-4">Package Management</h4>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Package ID</th>
+                        <th>Name</th>
+                        <th>Capacity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#PKG-001</td>
+                        <td>Swat Valley Summer</td>
+                        <td>25 Persons [cite: 9]</td>
+                        <td><span class="badge bg-info">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="users-page" class="page-content">
+        <h4 class="fw-bold mb-4">User Management</h4>
+        <div class="table-container text-center py-5">
+            <i class="fas fa-user-shield fs-1 text-muted mb-3"></i>
+            <h5>User Access Control [cite: 55]</h5>
+            <p class="text-muted">Manage all registered users and roles here.</p>
+            <button class="btn btn-primary">Add New User</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Sub-menu toggle function
+    function toggleSub(id) {
+        const sub = document.getElementById(id);
+        const icon = event.currentTarget.querySelector('.fa-chevron-right');
+        
+        if (sub.classList.contains('show')) {
+            sub.classList.remove('show');
+            icon.style.transform = "rotate(0deg)";
+        } else {
+            sub.classList.add('show');
+            icon.style.transform = "rotate(90deg)";
+        }
+    }
+
+    // Page switcher function
+    function navigate(pageId) {
+        // Hide all pages
+        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+        // Show selected page
+        document.getElementById(pageId).classList.add('active');
+        
+        // Update active link styling
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
