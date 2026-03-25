@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Mobile UI</title>
+
+<style>
+:root {
+    --theme-color: rgba(0,0,0,0.4);
+}
+
+body {
+    margin: 0;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+/* PHONE FRAME */
+.phone {
+    width: 340px;
+    height: 650px;
+    border-radius: 35px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    transition: 0.5s;
+}
+
+/* STATUS BAR */
+.status-bar {
+    height: 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    font-size: 12px;
+    background: rgba(0,0,0,0.3);
+}
+
+/* APPS GRID */
+.apps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.app {
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.2);
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+/* CONTROL PANEL */
+.panel {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--theme-color);
+    backdrop-filter: blur(15px);
+    padding: 15px;
+    transition: 0.3s;
+}
+
+/* BUTTONS */
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* WALLPAPER GRID */
+.wallpapers {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+}
+
+.wallpapers img {
+    width: 60px;
+    height: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.wallpapers img:hover {
+    transform: scale(1.1);
+}
+
+/* COLOR PICKER */
+input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    margin-top: 10px;
+}
+
+/* UPLOAD */
+input[type="file"] {
+    margin-top: 10px;
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="phone" id="phone">
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+        <span id="time"></span>
+        <span>📶 🔋</span>
+    </div>
+
+    <!-- APPS -->
+    <div class="apps">
+        <div class="app"><div class="icon"></div>Camera</div>
+        <div class="app"><div class="icon"></div>Gallery</div>
+        <div class="app"><div class="icon"></div>Music</div>
+        <div class="app"><div class="icon"></div>Settings</div>
+        <div class="app"><div class="icon"></div>Maps</div>
+        <div class="app"><div class="icon"></div>Chat</div>
+        <div class="app"><div class="icon"></div>Browser</div>
+        <div class="app"><div class="icon"></div>Files</div>
+    </div>
+
+    <!-- CONTROL PANEL -->
+    <div class="panel">
+        
+        <!-- WALLPAPER SELECT -->
+        <div class="wallpapers" id="wallList"></div>
+
+        <!-- UPLOAD -->
+        <input type="file" accept="image/*" onchange="uploadWallpaper(event)">
+
+        <!-- COLOR -->
+        <input type="color" onchange="changeTheme(this.value)">
+
+        <!-- DARK MODE -->
+        <button class="btn" onclick="toggleDark()">Toggle Dark Mode</button>
+
+    </div>
+
+</div>
+
+<script>
+const phone = document.getElementById("phone");
+
+/* WALLPAPERS */
+const wallpapers = [
+    "https://picsum.photos/400/700?1",
+    "https://picsum.photos/400/700?2",
+    "https://picsum.photos/400/700?3",
+    "https://picsum.photos/400/700?4",
+    "https://picsum.photos/400/700?5"
+];
+
+const wallList = document.getElementById("wallList");
+
+wallpapers.forEach(src => {
+    let img = document.createElement("img");
+    img.src = src;
+    img.onclick = () => setWallpaper(src);
+    wallList.appendChild(img);
+});
+
+/* SET WALLPAPER */
+function setWallpaper(src) {
+    phone.style.backgroundImage = `url(${src})`;
+    localStorage.setItem("wallpaper", src);
+}
+
+/* UPLOAD WALLPAPER */
+function uploadWallpaper(e) {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function() {
+        setWallpaper(reader.result);
+    };
+
+    reader.readAsDataURL(file);
+}
+
+/* THEME COLOR */
+function changeTheme(color) {
+    const value = color + "aa";
+    document.documentElement.style.setProperty("--theme-color", value);
+    localStorage.setItem("theme", value);
+}
+
+/* DARK MODE */
+let dark = true;
+function toggleDark() {
+    dark = !dark;
+    document.querySelector(".panel").style.background =
+        dark ? "rgba(0,0,0,0.5)" : "rgba(255,255,255,0.5)";
+}
+
+/* TIME */
+function updateTime() {
+    const now = new Date();
+    document.getElementById("time").innerText =
+        now.getHours() + ":" + String(now.getMinutes()).padStart(2, '0');
+}
+setInterval(updateTime, 1000);
+updateTime();
+
+/* LOAD SAVED SETTINGS */
+window.onload = function() {
+    const savedWall = localStorage.getItem("wallpaper");
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedWall) phone.style.backgroundImage = `url(${savedWall})`;
+    else setWallpaper(wallpapers[0]);
+
+    if (savedTheme)
+        document.documentElement.style.setProperty("--theme-color", savedTheme);
+};
+</script>
+
+</body>
+</html>
