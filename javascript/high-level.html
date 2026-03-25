@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Mobile OS</title>
+
+<style>
+:root {
+  --theme: rgba(0,0,0,0.4);
+  --text: #fff;
+}
+
+body {
+  margin:0;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:sans-serif;
+}
+
+/* PHONE */
+.phone {
+  width:340px;
+  height:680px;
+  border-radius:40px;
+  overflow:hidden;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 0 50px rgba(0,0,0,0.8);
+  transition:0.5s;
+}
+
+/* LOCK SCREEN */
+.lock {
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(10px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  z-index:5;
+  transition:0.5s;
+}
+
+.lock.hidden {
+  transform:translateY(-100%);
+}
+
+.time {
+  font-size:50px;
+}
+
+.date {
+  font-size:14px;
+  opacity:0.7;
+}
+
+.swipe {
+  position:absolute;
+  bottom:30px;
+  font-size:12px;
+  opacity:0.6;
+}
+
+/* HOME */
+.home {
+  position:absolute;
+  inset:0;
+  padding-top:40px;
+}
+
+/* STATUS */
+.status {
+  position:absolute;
+  top:0;
+  width:100%;
+  padding:5px 10px;
+  color:white;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* APPS */
+.apps {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  padding:20px;
+}
+
+.app {
+  text-align:center;
+  color:white;
+  cursor:pointer;
+}
+
+.icon {
+  width:55px;
+  height:55px;
+  border-radius:15px;
+  background:rgba(255,255,255,0.2);
+  margin:auto;
+  margin-bottom:5px;
+  transition:0.3s;
+}
+
+.icon:hover {
+  transform:scale(1.1);
+}
+
+/* APP WINDOW */
+.window {
+  position:absolute;
+  inset:0;
+  background:#111;
+  color:white;
+  z-index:10;
+  transform:scale(0);
+  transition:0.3s;
+  padding:20px;
+}
+
+.window.open {
+  transform:scale(1);
+}
+
+/* PANEL */
+.panel {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background:var(--theme);
+  backdrop-filter:blur(15px);
+  padding:10px;
+}
+
+/* WALLPAPERS */
+.wallpapers {
+  display:flex;
+  gap:5px;
+  overflow-x:auto;
+}
+
+.wallpapers img {
+  width:60px;
+  height:100px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* BUTTON */
+button {
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border:none;
+  border-radius:10px;
+  background:#333;
+  color:white;
+}
+
+/* ANIMATIONS */
+.fade {
+  animation:fade 0.5s;
+}
+
+@keyframes fade {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone" id="phone">
+
+  <!-- LOCK SCREEN -->
+  <div class="lock" id="lock">
+    <div class="time" id="lockTime"></div>
+    <div class="date" id="lockDate"></div>
+    <div class="swipe">⬆ Swipe Up</div>
+  </div>
+
+  <!-- HOME -->
+  <div class="home">
+
+    <div class="status">
+      <span id="statusTime"></span>
+      <span>📶 🔋</span>
+    </div>
+
+    <div class="apps">
+      <div class="app" onclick="openApp()"> <div class="icon"></div>App</div>
+      <div class="app" onclick="openApp()"> <div class="icon"></div>Gallery</div>
+      <div class="app" onclick="openApp()"> <div class="icon"></div>Music</div>
+      <div class="app" onclick="openApp()"> <div class="icon"></div>Chat</div>
+    </div>
+
+  </div>
+
+  <!-- APP WINDOW -->
+  <div class="window" id="appWindow">
+    <h2>App Opened</h2>
+    <button onclick="closeApp()">Close</button>
+  </div>
+
+  <!-- CONTROL PANEL -->
+  <div class="panel">
+
+    <div class="wallpapers" id="walls"></div>
+
+    <input type="file" onchange="upload(event)">
+
+    <input type="color" onchange="setTheme(this.value)">
+
+    <button onclick="toggleMode()">Toggle Mode</button>
+
+  </div>
+
+</div>
+
+<script>
+const phone = document.getElementById("phone");
+
+/* TIME */
+function updateTime() {
+  let d = new Date();
+  let time = d.getHours() + ":" + String(d.getMinutes()).padStart(2,'0');
+  document.getElementById("statusTime").innerText = time;
+  document.getElementById("lockTime").innerText = time;
+  document.getElementById("lockDate").innerText = d.toDateString();
+}
+setInterval(updateTime,1000);
+updateTime();
+
+/* LOCK SWIPE */
+let startY = 0;
+document.getElementById("lock").addEventListener("touchstart", e=>{
+  startY = e.touches[0].clientY;
+});
+
+document.getElementById("lock").addEventListener("touchmove", e=>{
+  let move = e.touches[0].clientY;
+  if(startY - move > 100){
+    document.getElementById("lock").classList.add("hidden");
+  }
+});
+
+/* WALLPAPERS */
+const images = [
+  "https://picsum.photos/400/700?10",
+  "https://picsum.photos/400/700?11",
+  "https://picsum.photos/400/700?12"
+];
+
+const wallDiv = document.getElementById("walls");
+
+images.forEach(src=>{
+  let img = document.createElement("img");
+  img.src = src;
+  img.onclick = ()=>setWall(src);
+  wallDiv.appendChild(img);
+});
+
+function setWall(src){
+  phone.style.backgroundImage = `url(${src})`;
+  localStorage.setItem("wall",src);
+}
+
+/* UPLOAD */
+function upload(e){
+  let reader = new FileReader();
+  reader.onload = ()=>setWall(reader.result);
+  reader.readAsDataURL(e.target.files[0]);
+}
+
+/* THEME */
+function setTheme(c){
+  let val = c+"aa";
+  document.documentElement.style.setProperty("--theme",val);
+  localStorage.setItem("theme",val);
+}
+
+/* DARK MODE */
+let dark=true;
+function toggleMode(){
+  dark=!dark;
+  document.body.style.background = dark?"#000":"#ddd";
+}
+
+/* APP SYSTEM */
+function openApp(){
+  document.getElementById("appWindow").classList.add("open","fade");
+}
+
+function closeApp(){
+  document.getElementById("appWindow").classList.remove("open");
+}
+
+/* LOAD */
+window.onload=()=>{
+  let w = localStorage.getItem("wall");
+  let t = localStorage.getItem("theme");
+  if(w) setWall(w);
+  if(t) document.documentElement.style.setProperty("--theme",t);
+}
+</script>
+
+</body>
+</html>
